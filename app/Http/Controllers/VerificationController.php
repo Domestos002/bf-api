@@ -39,8 +39,17 @@ class VerificationController extends Controller
     public function update(Request $request, Verification $verification)
     {
         $data = $request->only(['coordinator', 'status']);
+        $updated = [];
 
-        $verification->update(['coordinator_id' => $data['coordinator']['id'], 'status' => $data['status']]);
+        if(isset($data['coordinator'])) {
+            $updated['coordinator_id'] = $data['coordinator']['id'];
+        }
+
+        if(isset($data['status'])) {
+            $updated['status'] = $data['status'];
+        }
+
+        $verification->update($updated);
 
         return new VerificationResourse($verification);
     }

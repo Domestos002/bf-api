@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('verification', 'VerificationController');
 Route::apiResource('coordinator', 'CoordinatorController');
+Route::apiResource('user', 'UserController');
