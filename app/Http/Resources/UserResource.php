@@ -15,8 +15,8 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        $avatarpath = App::make('url')->to('/') . '/storage/' . $this->avatar;
-
+        $avatarpath = 'https://' . $request->getHost() . '/storage/' . $this->avatar;
+        
         return [
             'id' => $this->id,
             'name' => $this->name,
